@@ -17,6 +17,9 @@ include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 
 include device/yu/tomato/board/*.mk
 
+#TW FLAG
+TW_THEME := portrait_hdpi
+
 # Assertions
 TARGET_BOARD_INFO_FILE := device/yu/tomato/board-info.txt
 
