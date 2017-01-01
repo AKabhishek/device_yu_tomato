@@ -24,8 +24,9 @@ import android.preference.ListPreference;
 import android.preference.SwitchPreference;
 import android.view.MenuItem;
 
-import cyanogenmod.providers.CMSettings;
+import android.provider.Settings;
 import com.cyanogenmod.settings.device.utils.Constants;
+import com.android.internal.util.cm.ScreenType;
 
 public class TouchscreenGestureSettings extends PreferenceActivity
         implements OnPreferenceChangeListener {
@@ -50,8 +51,9 @@ public class TouchscreenGestureSettings extends PreferenceActivity
         // Remove the padding around the listview
         getListView().setPadding(0, 0, 0, 0);
 
-        mHapticFeedback.setChecked(CMSettings.System.getInt(getContentResolver(),
-                CMSettings.System.TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK, 1) != 0);
+        mHapticFeedback.setChecked(
+Settings.System.getInt(getContentResolver(),
+        KEY_HAPTIC_FEEDBACK, 1) != 0);
     }
 
     @Override
@@ -59,8 +61,7 @@ public class TouchscreenGestureSettings extends PreferenceActivity
         final String key = preference.getKey();
         if (KEY_HAPTIC_FEEDBACK.equals(key)) {
             final boolean value = (Boolean) newValue;
-            CMSettings.System.putInt(getContentResolver(),
-                    CMSettings.System.TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK, value ? 1 : 0);
+            Settings.System.putInt(getContentResolver(),KEY_HAPTIC_FEEDBACK, value ? 1 : 0);
             return true;
         }
 

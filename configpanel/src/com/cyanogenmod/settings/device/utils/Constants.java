@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import org.cyanogenmod.internal.util.FileUtils;
+import com.android.internal.util.cm.FileUtils;
 
 import java.util.HashMap;
 import java.util.Map;
